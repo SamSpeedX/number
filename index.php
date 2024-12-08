@@ -29,9 +29,10 @@ function getPhoneNumberRegion($phoneNumber, $defaultRegion = 'US') {
     }
 }
 
-// Example usage:
-$phone = $_POST['number']; 
-$result = getPhoneNumberRegion($phone);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+   $phone = $_POST['number']; 
+   $result = getPhoneNumberRegion($phone);
+
 
 if (isset($result['error'])) {
     echo $result['error'];
@@ -39,6 +40,7 @@ if (isset($result['error'])) {
     echo "Region: " . $result['region'] . PHP_EOL;
     echo "Time Zones: " . implode(', ', $result['timeZones']) . PHP_EOL;
     echo "Formatted: " . $result['formatted'] . PHP_EOL;
+}
 }
 ?>
 <form action="" method="post">

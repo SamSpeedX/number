@@ -44,6 +44,6 @@ if (isset($result['error'])) {
 }
 ?>
 <form action="" method="post">
-<input type="text" id="number" placeholder="andika namba"><br>
+<input type="text" name="number" id="number" placeholder="andika namba"><br>
   <button type="submit">send</button>
 </form>
